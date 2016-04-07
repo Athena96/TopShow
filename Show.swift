@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-class Show: NSManagedObject {
+final class Show: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 

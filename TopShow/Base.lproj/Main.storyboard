@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="W4m-dX-K96">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="W4m-dX-K96">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -26,20 +26,20 @@
                                             <rect key="frame" x="15" y="6" width="31.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LUv-km-jIN">
                                             <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="twX-34-sqD" kind="presentation" identifier="edit" id="7Gf-v7-KxK"/>
+                                    <segue destination="twX-34-sqD" kind="presentation" identifier="edit" id="5KR-Sh-l8s"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -49,9 +49,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="TopShow" id="omj-dV-2QD">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="f3J-cR-ZLr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UWV-gb-rFn">
                             <connections>
-                                <segue destination="twX-34-sqD" kind="presentation" identifier="add" id="AJD-O9-YAc"/>
+                                <segue destination="twX-34-sqD" kind="presentation" identifier="add" id="i9A-gK-JjW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -63,7 +63,7 @@
         <!--Add • Edit-->
         <scene sceneID="9NS-OF-m9m">
             <objects>
-                <viewController id="RxA-AD-5XM" customClass="Add_EditViewController" customModule="TopShow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RxA-AD-5XM" customClass="AddEditViewController" customModule="TopShow" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gnd-L2-wyN"/>
                         <viewControllerLayoutGuide type="bottom" id="2qT-ky-0SN"/>
@@ -78,13 +78,13 @@
                                     <constraint firstAttribute="height" constant="32" id="PJB-3k-2gI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tg4-o8-Xvk">
                                 <rect key="frame" x="20" y="149" width="88" height="32"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UqE-CQ-uY0">
@@ -127,12 +127,12 @@
                     <navigationItem key="navigationItem" title="Add • Edit" id="Ybm-AG-xet">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LW0-pa-vdc">
                             <connections>
-                                <action selector="cancelButtonPressed:" destination="RxA-AD-5XM" id="Yd2-0z-d69"/>
+                                <action selector="cancelButtonPressed:" destination="RxA-AD-5XM" id="t4k-HO-e0B"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="RS1-Hm-HLj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="TnU-il-eAZ">
                             <connections>
-                                <action selector="saveButtonPressed:" destination="RxA-AD-5XM" id="nrl-1P-g8z"/>
+                                <action selector="saveButtonPressed:" destination="RxA-AD-5XM" id="kr9-P2-tYO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -143,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tos-lR-dU5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2546" y="398"/>
+            <point key="canvasLocation" x="3126" y="398"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iaA-6z-UuA">
@@ -179,10 +179,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JqI-mc-Lgy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1734" y="398"/>
+            <point key="canvasLocation" x="1798" y="398"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7Gf-v7-KxK"/>
+        <segue reference="i9A-gK-JjW"/>
     </inferredMetricsTieBreakers>
 </document>

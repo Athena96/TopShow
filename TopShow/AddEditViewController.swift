@@ -2,16 +2,16 @@
 import UIKit
 import CoreData
 
-class Add_EditViewController: UIViewController {
+final class AddEditViewController: UIViewController {
     
     
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet private weak var titleTextField: UITextField!
     
     
-    @IBOutlet weak var ratingSegmentedController: UISegmentedControl!
+    @IBOutlet private weak var ratingSegmentedController: UISegmentedControl!
     
     
     
@@ -41,7 +41,7 @@ class Add_EditViewController: UIViewController {
         */
         if let title = show?.title, let rating = show?.rating {
             titleTextField.text = title
-            ratingSegmentedController.selectedSegmentIndex = rating.integerValue - 1
+            ratingSegmentedController.selectedSegmentIndex = rating - 1
         }
     }
     
@@ -55,7 +55,7 @@ class Add_EditViewController: UIViewController {
     /*
     Closes the view controller
     */
-    @IBAction func saveButtonPressed(sender: UIBarButtonItem) {
+    @IBAction private func saveButtonPressed(sender: UIBarButtonItem) {
         do {
             if show == nil {
                 try save()
@@ -68,7 +68,7 @@ class Add_EditViewController: UIViewController {
     } // end save button method
     
     
-    @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
+    @IBAction private func cancelButtonPressed(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -88,7 +88,7 @@ class Add_EditViewController: UIViewController {
         }
         
         // Create and Save
-        let favoriteShow = NSEntityDescription.insertNewObjectForEntityForName("Show", inManagedObjectContext: self.managedObjectContext) as! Show
+        let favoriteShow = NSEntityDescription.insertNewObjectForEntityForName("Show", inManagedObjectContext: managedObjectContext) as! Show
         favoriteShow.title = title
         favoriteShow.rating = ratingSegmentedController.selectedSegmentIndex + 1
         favoriteShow.dateAdded = NSDate()
@@ -108,15 +108,20 @@ class Add_EditViewController: UIViewController {
             throw Error.InvalidTitle
         }
         
-        // Update the selected task
-        show!.title = title
-        show!.rating = ratingSegmentedController.selectedSegmentIndex + 1
+        if let showToEdit = show {
+            // Update the selected task
+            showToEdit.title = title
+            showToEdit.rating = ratingSegmentedController.selectedSegmentIndex + 1
+            
+            saveManagedObjectContext()
+        } else {
+            print("error")
+        }
         
-        saveManagedObjectContext()
     }
     
     
-    func saveManagedObjectContext() {
+    private func saveManagedObjectContext() {
         do {
             try managedObjectContext.save()
         } catch { print("error saving context") }

@@ -15,7 +15,7 @@ import CoreData
 extension Show {
 
     @NSManaged var title: String?
-    @NSManaged var rating: NSNumber?
+    @NSManaged var rating: Int32
     @NSManaged var dateAdded: NSDate?
 
 }
