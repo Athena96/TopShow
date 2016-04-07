@@ -73,7 +73,9 @@ final class ShowTablewViewController: UITableViewController, NSFetchedResultsCon
                 case .Delete:
                     self.tableView.deleteRowsAtIndexPaths([indexpath], withRowAnimation: .Fade)
                 case .Update:
-                    self.configureCell(self.tableView.cellForRowAtIndexPath(indexPath!)!, indexPath: indexPath!)
+                    if let cell = self.tableView.cellForRowAtIndexPath(indexpath) {
+                        self.configureCell(cell, indexPath: indexpath)
+                    }
                 case .Move:
                     self.tableView.deleteRowsAtIndexPaths([indexpath], withRowAnimation: .Fade)
                     self.tableView.insertRowsAtIndexPaths([indexpath], withRowAnimation: .Fade)
