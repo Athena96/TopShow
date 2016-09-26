@@ -17,7 +17,7 @@ final class ShowTableViewController: UITableViewController, NSFetchedResultsCont
     // through the persistentContainer in the AppDelegate.
     
     private func getContext () -> NSManagedObjectContext {
-        let appDelegate = UIApplication.shared().delegate as! AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
     
@@ -29,7 +29,7 @@ final class ShowTableViewController: UITableViewController, NSFetchedResultsCont
         // Create fetch request and the sort descriptor.
         let fetchRequest: NSFetchRequest<Show> = Show.fetchRequest()
         
-        let sortDescriptor = SortDescriptor(key: "rating", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "rating", ascending: false)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
@@ -64,25 +64,24 @@ final class ShowTableViewController: UITableViewController, NSFetchedResultsCont
         self.tableView.beginUpdates()
     }
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: AnyObject, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         // update the tableView with the appropriate change
         switch type {
-            case .delete:
-                self.tableView.deleteRows(at: [indexPath!], with: .fade)
-           
-            case .update:
-                self.configureCell(cell: tableView.cellForRow(at: indexPath!)!, indexPath: indexPath!)
+        case .delete:
+            self.tableView.deleteRows(at: [indexPath!], with: .fade)
             
-            case .insert:
-                self.tableView.insertRows(at: [newIndexPath!], with: .fade)
+        case .update:
+            self.configureCell(cell: tableView.cellForRow(at: indexPath!)!, indexPath: indexPath!)
             
-            case .move:
-                self.tableView.deleteRows(at: [indexPath!], with: .fade)
-                self.tableView.insertRows(at: [indexPath!], with: .fade)
+        case .insert:
+            self.tableView.insertRows(at: [newIndexPath!], with: .fade)
+            
+        case .move:
+            self.tableView.deleteRows(at: [indexPath!], with: .fade)
+            self.tableView.insertRows(at: [indexPath!], with: .fade)
         }
     }
-
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.endUpdates()
         self.tableView.reloadData()
@@ -96,7 +95,7 @@ final class ShowTableViewController: UITableViewController, NSFetchedResultsCont
         if editingStyle == .delete {
             
             // get the show we want to delete
-            let showToDelete = fetchedResultsController.object(at: indexPath as IndexPath)
+            let showToDelete = fetchedResultsController.object(at: indexPath)
             
             // get a reference to our managed object context
             let context = self.getContext()
@@ -127,34 +126,35 @@ final class ShowTableViewController: UITableViewController, NSFetchedResultsCont
         return cell
     }
     
-    func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
+    func configureCell(cell: UITableViewCell, indexPath: IndexPath) {
         // Get the show at this index
-        let show = self.fetchedResultsController.object(at: indexPath as IndexPath) as Show
+        let show = self.fetchedResultsController.object(at: indexPath)
         
         // unwrap its data
         if let title = show.title, let rating = show.rating?.intValue {
             cell.textLabel?.text = "\"\(title)\""
-            cell.detailTextLabel?.text = String(repeating: "★" as Character, count: rating)
+            cell.detailTextLabel?.text  = String(repeating: "★", count: rating)
             cell.detailTextLabel?.textColor = #colorLiteral(red: 0.03921568627, green: 0.3333333333, blue: 0.8784313725, alpha: 1)
         }
     }
     
     // MARK: - Segue
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
         if segue.identifier == "edit" {
             
-            if let viewController = segue.destinationViewController as? AddEditViewController {
+            if let viewController = segue.destination as? AddEditViewController {
                 
                 if let indexPath = tableView.indexPathForSelectedRow {
                     let selectedObject = fetchedResultsController.object(at: indexPath)
                     viewController.show = selectedObject
                 }
+                
             }
+            
         }
-    }
-    
+        
+    } // end of 'prepare...' func
     
 }
 

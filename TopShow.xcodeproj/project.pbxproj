@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E185BEE41D675D3D00AA9934 /* Show+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E185BEE21D675D3D00AA9934 /* Show+CoreDataClass.swift */; };
+		E185BEE51D675D3D00AA9934 /* Show+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E185BEE31D675D3D00AA9934 /* Show+CoreDataProperties.swift */; };
 		E19B62201D4DAE6C00CA6D01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B621F1D4DAE6C00CA6D01 /* AppDelegate.swift */; };
 		E19B62251D4DAE6C00CA6D01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19B62231D4DAE6C00CA6D01 /* Main.storyboard */; };
 		E19B62281D4DAE6C00CA6D01 /* TopShow.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E19B62261D4DAE6C00CA6D01 /* TopShow.xcdatamodeld */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E185BEE21D675D3D00AA9934 /* Show+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Show+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E185BEE31D675D3D00AA9934 /* Show+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Show+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E19B621C1D4DAE6C00CA6D01 /* TopShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19B621F1D4DAE6C00CA6D01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E19B62241D4DAE6C00CA6D01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,6 +46,8 @@
 		E19B62131D4DAE6C00CA6D01 = {
 			isa = PBXGroup;
 			children = (
+				E185BEE21D675D3D00AA9934 /* Show+CoreDataClass.swift */,
+				E185BEE31D675D3D00AA9934 /* Show+CoreDataProperties.swift */,
 				E19B621E1D4DAE6C00CA6D01 /* TopShow */,
 				E19B621D1D4DAE6C00CA6D01 /* Products */,
 			);
@@ -147,6 +153,8 @@
 				E19B625A1D4ECBF100CA6D01 /* AddEditViewController.swift in Sources */,
 				E19B62581D4ECA3600CA6D01 /* ShowTableViewController.swift in Sources */,
 				E19B62281D4DAE6C00CA6D01 /* TopShow.xcdatamodeld in Sources */,
+				E185BEE41D675D3D00AA9934 /* Show+CoreDataClass.swift in Sources */,
+				E185BEE51D675D3D00AA9934 /* Show+CoreDataProperties.swift in Sources */,
 				E19B62201D4DAE6C00CA6D01 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
